@@ -1,0 +1,279 @@
+extends layouts/_layout
+
+block variables
+	-title = 'Главная'
+
+block content
+
+	//begin main
+	main.main
+
+		//begin block-1
+		+b.SECTION.block-1
+			+e.IMG.jelly.jelly-decor(src='img/decor/jelly_1.svg' alt='image')
+			+e.container.container
+				+e.content
+					+b.section-title._lg._left.block-1__title
+						+e.H1.text aura
+						+e.P.descr User-friendly
+							strong platform
+							= ' '
+							| for workstations monitoring and management
+
+					+e.BUTTON.btn.btn Registration
+				+e.img-wrap
+					+e.IMG(src='img/content/macBook.png' alt='image')
+		//end block-1
+			
+		//begin block-2
+		+b.SECTION.block-2
+			+e.container.container
+				+e.img-wrap
+					+e.IMG(src='img/content/mockup.png' alt='image')
+				+e.content
+					+b.section-title._left.block-2__title
+						+e.H2.text Quick deploy
+						+e.P.descr Already customized personal installation image
+					+e.P.content-descr Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+		//end block-2
+
+		//begin block-3
+		+b.SECTION.block-3
+			+e.container.container
+				+e.content
+					+b.section-title._left.block-3__title
+						+e.H2.text Rigs and asics
+						+e.P.descr Lorem Ipsum is simply dummy text
+					+b.squared-list.block-3__list
+						+e.item
+							+e.H5.item-title Long established
+							+e.P Fact that a reader will be distracted by the readable content of a page when looking at its layout
+						+e.item
+							+e.H5.item-title Established
+							+e.P Fact that a reader will be distracted by the content of a page readable content
+						+e.item
+							+e.H5.item-title Long
+							+e.P Fact that a reader will be distracted
+
+				+e.img-wrap
+					+e.IMG(src='img/content/monitor.png' alt='image')
+		//end block-3
+			
+		//begin pricing
+		+b.SECTION.pricing
+			+e.container.container
+				+b.section-title._center.pricing__title
+					+e.H2.text Pricing
+					+e.P.descr Be the first to try
+				+e.row.row
+					+e.col.col
+						+e.block
+							+b.decor-dots._block
+								+e.el._top
+								+e.el._bot
+							+e.block-inner
+								+e.block-text
+									+e.block-price 0.99
+									+e.block-details
+										+e.block-val €
+										+e.block-info  per
+											span machine
+											= ' '
+											| / month
+
+					+e.col.col
+						+e.P Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+						+e.actions
+							+e.BUTTON.actions-btn.btn Try now
+							+b.text-label.pricing__actions-label up to 2 machines -
+								span free
+								+b.decor-dots
+									+e.el._top
+									+e.el._bot
+		//end pricing
+
+		//begin features
+		+b.SECTION.features
+			+e.container.container
+				+b.section-title._center.features__title
+					+e.H2.text Features
+					+e.P.descr Lorem Ipsum is simply dummy text
+				+e.row.row
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Quick deploy
+							+e.item-icon-wrap
+								+e.item-icon.icon-startup
+						+e.item-decor._top
+						+e.item-decor._bot
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Monitoring
+								+e.P Rigs & Asics
+							+e.item-icon-wrap
+								+e.item-icon.icon-home
+						+e.item-decor._top
+						+e.item-decor._bot
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Notification
+								+e.P Telegram & Mail
+							+e.item-icon-wrap
+								+e.item-icon.icon-notification
+						+e.item-decor._top
+						+e.item-decor._bot
+
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Dual mining
+							+e.item-icon-wrap
+								+e.item-icon.icon-mining
+						+e.item-decor._top
+						+e.item-decor._bot
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Energy consumption optimization
+							+e.item-icon-wrap
+								+e.item-icon.icon-plug
+						+e.item-decor._top
+						+e.item-decor._bot
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Fast switching
+							+e.item-icon-wrap
+								+e.item-icon.icon-switch
+						+e.item-decor._top
+						+e.item-decor._bot
+
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Overclocking
+							+e.item-icon-wrap
+								+e.item-icon.icon-speedometer
+						+e.item-decor._top
+						+e.item-decor._bot
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Groups
+							+e.item-icon-wrap
+								+e.item-icon.icon-leadership
+						+e.item-decor._top
+						+e.item-decor._bot
+					+e.item
+						+e.item-inner
+							+e.item-text
+								+e.H6.item-title Security
+							+e.item-icon-wrap
+								+e.item-icon.icon-security
+						+e.item-decor._top
+						+e.item-decor._bot
+		//end features
+			
+		//begin supported
+		+b.SECTION.supported
+			+e.container.container
+				+b.section-title._center.supported__title
+					+e.H2.text Supported hardware
+					+e.P.descr Lorem Ipsum is simply dummy text
+				+e.row.row
+					+e.block
+						+e.H5.block-title Nvidia
+						+e.block-row
+							+e.block-item
+								span 1060
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span 1070
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span 1070 TI
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span 1080
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span 1080 TI
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+					+e.block
+						+e.H5.block-title AMD
+						+e.block-row
+							+e.block-item
+								span RX470
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span RX480
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span RX570
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item
+								span RX580
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+				+e.row
+					+e.block
+						+e.H5.block-title Antminer
+						+e.block-row
+							+e.block-item._sm
+								span S9
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item._sm
+								span L3+
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item._sm
+								span D3
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item._sm
+								span A3
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item._sm
+								span Z9
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item._sm
+								span X3
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+							+e.block-item._sm
+								span E3
+								+b.decor-dots._support
+									+e.el._top
+									+e.el._bot
+		//end supported
+			
+	//end main

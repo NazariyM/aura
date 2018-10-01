@@ -1,0 +1,19 @@
+// *** begin squared-list *** //
+.squared-list
+   &__item
+      position: relative
+      padding-left: 20px
+      &::before
+         position: absolute
+         top: 8px
+         left: 0
+         width: 6px
+         height: 6px
+         border: 2px solid $color5
+         transform: rotate(45deg)
+         content: ''
+      &-title
+         margin-bottom: 10px
+         +f('ub500', 18, 24)
+         color: $color3
+// end squared-list //

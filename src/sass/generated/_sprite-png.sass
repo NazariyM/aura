@@ -1,0 +1,90 @@
+$icons: (0:0)
+$icons: map-merge($icons,('home': (X: 0px, Y:0px, W: 50px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('leadership': (X: -60px, Y:0px, W: 50px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('mining': (X: 0px, Y:-120px, W: 47px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('notification': (X: -57px, Y:-120px, W: 42px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('plug': (X: 0px, Y:-60px, W: 50px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('security': (X: -60px, Y:-60px, W: 50px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('speedometer': (X: -109px, Y:-120px, W: 50px, H: 32px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('startup': (X: -120px, Y:0px, W: 50px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+$icons: map-merge($icons,('switch': (X: -120px, Y:-60px, W: 50px, H: 50px, TW: 170px, TH: 170px, IMG: '../img/sprite.png')))
+
+
+// Gets an attribute from the sass map
+@function icon-attr($icon, $attr)
+  $icon: map-get($icons, $icon)
+  @return map-get($icon, $attr)
+
+@mixin sprite($iconName)
+  background-image: url(icon-attr($iconName, IMG))
+  width: icon-attr($iconName, W)
+  height: icon-attr($iconName, H)
+  background-position: icon-attr($iconName, X) icon-attr($iconName, Y)
+@mixin sprite-position($iconName)
+  background-position: icon-attr($iconName, X) icon-attr($iconName, Y)
+@mixin sprite-retina($iconName)
+  background-image: url(icon-attr($iconName, IMG))
+  $width: icon-attr($iconName, W)
+  $height: icon-attr($iconName, H)
+  width: $width/2
+  height: $height/2
+  $x: icon-attr($iconName, X)
+  $y: icon-attr($iconName, Y)
+  background-position: $x/2 $y/2
+  $tw: icon-attr($iconName, TW)   
+  $th: icon-attr($iconName, TH)
+  background-size: $tw/2 $th/2    
+
+
+@mixin s($i)
+  +sprite($i)
+@mixin sp($i)
+  +sprite-position($i)
+@mixin sr($i)
+  +sprite-retina($i)  
+
+.icon-home
+  width: 50px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: 0px 0px
+.icon-leadership
+  width: 50px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: -60px 0px
+.icon-mining
+  width: 47px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: 0px -120px
+.icon-notification
+  width: 42px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: -57px -120px
+.icon-plug
+  width: 50px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: 0px -60px
+.icon-security
+  width: 50px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: -60px -60px
+.icon-speedometer
+  width: 50px
+  height: 32px
+  background-image: url('../img/sprite.png')
+  background-position: -109px -120px
+.icon-startup
+  width: 50px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: -120px 0px
+.icon-switch
+  width: 50px
+  height: 50px
+  background-image: url('../img/sprite.png')
+  background-position: -120px -60px
