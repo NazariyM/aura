@@ -1,42 +1,36 @@
 .nav
    $parent: &
-   +sm
-      flex-direction: column
-      justify-content: center
-      position: absolute
-      top: 80px
-      left: 0
-      width: 100%
-      height: 100vh
-      z-index: 10
-      padding-bottom: 80px
-      overflow: auto
-      opacity: 0
-      border: 0
-      visibility: hidden
-      transform: translate3d(0, 100px, 0)
-      transition: transform .4s ease, opacity .4s ease, visibility 0s .4s, -webkit-transform .4s ease
-      background: #fff
-      text-align: center
-      box-shadow: inset 0 0 25px rgba($color1, .3)
-   +xs
-      top: 65px
-      padding-bottom: 65px
-   &.is-active
-      opacity: 1
-      visibility: visible
-      transform: translate3d(0, 0, 0)
-      transition: transform .4s ease, opacity .4s ease, visibility 0s 0s, -webkit-transform .4s ease
    
    &__body
       height: 100%
-      @extend .container
-      
+      +xs
+         flex-direction: column
+         justify-content: center
+         position: fixed
+         top: 0
+         left: 0
+         width: 100%
+         height: 100vh
+         z-index: 10
+         overflow: auto
+         opacity: 1
+         border: 0
+         visibility: hidden
+         transform: translate3d(-100%, 0, 0)
+         transition: transform .4s ease, opacity .4s ease, visibility 0s .4s, -webkit-transform .4s ease
+         text-align: center
+         background-image: linear-gradient(to right, #351b60 0%, #6b2d69 100%)
+      #{$parent}.is-active &
+         opacity: 1
+         visibility: visible
+         transform: translate3d(0, 0, 0)
+         transition: transform .4s ease, opacity .4s ease, visibility 0s 0s, -webkit-transform .4s ease
+   
    &__list
       display: flex
       align-items: center
       height: 100%
-      +sm
+      +xs
          flex-direction: column
          justify-content: center
          align-items: center
@@ -45,8 +39,23 @@
          padding: 0
       &-item
          position: relative
+         +xs
+            opacity: 0
+            transform: translateX(-50px)
+            transition: .3s ease-in-out
          &:not(:last-child)
-            margin-right: 60px
+            margin-right: 73px
+            +xs
+               margin: 0 0 30px
+               
+         #{$parent}.is-active &
+            opacity: 1
+            transform: translateX(0)
+         $elements: 3
+         @for $i from 0 to $elements
+            &:nth-child(#{$i + 1})
+               +xs
+                  transition-delay: #{$i * 0.1s}
       &-link
          display: block
          +f('ub400')
@@ -54,24 +63,25 @@
          line-height: 16px
          color: $color2
          transition: .3s ease-in-out
-         +sm
+         +xs
             position: relative
             z-index: 1
             display: inline-block
             padding: 0 15px
-            color: $color1
+            color: $white
             font-size: 16px
-            background: $white
          &:hover
             color: $white
          &_login
             position: relative
-            padding: 14px 35px 14px 20px
+            padding: 14px 40px 14px 35px
             min-width: 160px
             border-radius: 4px
             border: 1px solid rgba($white, .5)
             color: $white
             text-align: center
+            +xs
+               padding: 14px 40px 14px 35px
             &:hover
                border-color: $white
                i
@@ -84,61 +94,47 @@
                font-size: 16px
                color: rgba($white, .5)
                transition: .3s ease-in-out
-            
+
 .nav__btn
-   $parent: &
    display: none
    position: relative
-   top: -5px
-   border: 0
-   outline: 0
-   padding: 0
-   z-index: 11
-   +sm
-      display: block
-   
-   &.is-active span
-      color: $color1
-   
-   &-burger
-      display: block
-      margin: auto
-      width: 40px
-      height: 40px
-      cursor: pointer
-   &-lines
-      display: block
-      width: 40px
-      height: 3px
-      &:after, &:before
-         width: 40px
-         height: 3px
-      position: relative
-      transform: translateY(25px)
-      background-color: $color1
-      transition: all .3s
-      #{$parent}.is-active &
-         background: rgba(255, 255, 255, 0)
-      &:before
-         content: ""
+   z-index: 100
+   height: 32px
+   width: 32px
+   outline: none
+   cursor: pointer
+   align-items: center
+   +xs
+      display: flex
+   span
+      position: absolute
+      content: ''
+      width: 32px
+      height: 2.5px
+      background: #fafafa
+      border-radius: 20px
+      transition: 500ms cubic-bezier(0.77, 0, 0.175, 1)
+      &::before, &::after
          position: absolute
+         content: ''
+         width: 32px
+         height: 2.5px
+         background: #fafafa
+         border-radius: 20px
+         transition: 500ms cubic-bezier(0.77, 0, 0.175, 1)
+      &::before
+         top: -8px
          left: 0
-         bottom: 10px
-         background-color: $color1
-         transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)
-      &:after
-         content: ""
-         position: absolute
+      &::after
+         top: 8px
          left: 0
-         top: 10px
-         background-color: $color1
-         transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)
-      #{$parent}.is-active &
-         &:after
-            top: 0
-            transform: rotate(45deg)
-            transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)
-         &:before
-            bottom: 0
-            transform: rotate(-45deg)
-            transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)
+   &.is-active > span
+      background: transparent
+      &::before, &::after
+         top: 0
+      &::before
+         -webkit-transform: rotate(-225deg)
+         transform: rotate(-225deg)
+      &::after
+         -webkit-transform: rotate(225deg)
+         transform: rotate(225deg)

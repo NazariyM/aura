@@ -27,9 +27,26 @@ body
    padding: 0 15px
 
 .main
+   position: relative
    display: block
    overflow: hidden
+   &::before, &::after
+      position: absolute
+      top: 0
+      bottom: 0
+      width: 1px
+      background-color: rgba(#e6e6e6, .5)
+      content: ''
+   &::before
+      left: 10.4%
+   &::after
+      right: 10.4%
    
+.section
+   position: relative
+   +xs
+      padding: 60px 0
+
 .section-title
    $parent: &
    &_center
@@ -38,14 +55,26 @@ body
       text-align: left
    &__text
       position: relative
-      margin-bottom: 10px
-      padding-bottom: 10px
+      padding-bottom: 16px
+      margin-bottom: 13px
       +f('ub700', 45, 45)
       color: $color1
+      +xs
+         font-size: 42px
+         line-height: 42px
+   
       #{$parent}_lg &
+         margin-bottom: 22px
+         padding-bottom: 23px
          text-transform: uppercase
          font-size: 120px
          line-height: 100px
+         +md
+            padding-bottom: 10px
+            margin-bottom: 15px
+            font-size: 100px
+            line-height: 80px
+   
       #{$parent}_left &
          &::after
             left: 0
@@ -68,6 +97,10 @@ body
       font-size: 22px
       line-height: 32px
       color: $color3
+      +md
+         font-size: 18px
+         line-height: 28px
+   
       strong, b
          +f('ub500')
       
@@ -84,7 +117,7 @@ body
    border-radius: 4px
    color: $white
    background-color: $color5
-   transition: .3s cubic-bezier(0.18, 0.89, 0.32, 1.5)
+   transition: .4s cubic-bezier(0.5, 0.89, 0.32, 1.5)
    &::before, &::after
       position: absolute
       top: calc(50% - 18px)
@@ -94,7 +127,7 @@ body
       opacity: 0
       background-repeat: no-repeat
       border: 2px solid rgba($white, .2)
-      transition: .3s cubic-bezier(0.18, 0.89, 0.32, 1.5)
+      transition: .4s cubic-bezier(0.5, 0.89, 0.32, 1.5)
       content: ''
    &::before
       left: 12px
@@ -116,6 +149,7 @@ body
 .jelly-decor
    position: absolute
    z-index: 1
+   pointer-events: none
 
 .decor-dots
    $parent: &
@@ -185,3 +219,16 @@ body
    color: $color1
    span
       color: $color5
+
+.section-back-text
+   position: absolute
+   z-index: 2
+   +f('ub700', 100, 70)
+   text-transform: uppercase
+   white-space: nowrap
+   color: rgba(#341b5c, .03)
+   +md
+      font-size: 70px
+   +xs
+      font-size: 40px
+      

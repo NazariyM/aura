@@ -2,18 +2,22 @@
 .squared-list
    &__item
       position: relative
-      padding-left: 20px
+      &:not(:last-child)
+         margin-bottom: 25px
+         +md
+            margin-bottom: 15px
       &::before
          position: absolute
          top: 8px
-         left: 0
+         left: -20px
          width: 6px
          height: 6px
          border: 2px solid $color5
          transform: rotate(45deg)
          content: ''
+         
       &-title
-         margin-bottom: 10px
+         margin-bottom: 2px
          +f('ub500', 18, 24)
          color: $color3
 // end squared-list //
